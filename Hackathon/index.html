@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Matchmaker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    ✦ <span>Service</span>&nbsp;Matchmaker
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="profile.html">Profiles</a>
+    <a href="events.html">Events</a>
+  </div>
+</nav>
+
+<div class="page">
+  <section class="hero">
+
+    <div class="hero-eyebrow">Connecting Skills with Purpose</div>
+
+    <h1>Where Talent<br>Meets <em>Opportunity</em></h1>
+
+    <p class="hero-sub">
+      A curated platform that brings skilled volunteers and meaningful community
+      events together — effortlessly.
+    </p>
+
+    <div class="hero-cta">
+      <a href="profile.html" class="btn btn-primary">Create Profile &rarr;</a>
+      <a href="events.html" class="btn btn-outline">Browse Events</a>
+    </div>
+
+    <div class="stats-row" id="statsRow">
+      <div class="stat">
+        <div class="stat-num" id="statProfiles">0</div>
+        <div class="stat-label">Volunteers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statEvents">0</div>
+        <div class="stat-label">Events</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statSkills">0</div>
+        <div class="stat-label">Skills</div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+<script>
+  // Populate live stats
+  window.addEventListener('DOMContentLoaded', () => {
+    const profiles = getProfiles();
+    const events   = getEvents();
+    const skills   = new Set(profiles.map(p => p.skill.toLowerCase()));
+    document.getElementById('statProfiles').textContent = profiles.length;
+    document.getElementById('statEvents').textContent   = events.length;
+    document.getElementById('statSkills').textContent   = skills.size;
+  });
+</script>
+</body>
+</html>

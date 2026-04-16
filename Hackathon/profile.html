@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Profiles — Service Matchmaker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">✦ <span>Service</span>&nbsp;Matchmaker</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="profile.html" class="active">Profiles</a>
+    <a href="events.html">Events</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="section">
+
+    <div class="section-header">
+      <h2>Volunteer <em>Profiles</em></h2>
+      <span class="section-count" id="profileCount">0 volunteers</span>
+    </div>
+
+    <!-- Add Profile Form -->
+    <div class="form-card">
+      <h3>Add a New Volunteer</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="e.g. Priya Sharma">
+        </div>
+        <div class="field">
+          <label for="skill">Primary Skill</label>
+          <input type="text" id="skill" placeholder="e.g. Graphic Design">
+        </div>
+      </div>
+      <div class="field">
+        <label for="location">Location <span style="opacity:0.5;font-style:italic;text-transform:none;">(optional)</span></label>
+        <input type="text" id="location" placeholder="e.g. Hyderabad">
+      </div>
+      <button class="btn btn-primary" onclick="addProfile()">Add Volunteer &rarr;</button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <div class="field">
+        <input type="text" id="profileSearch" placeholder="Search by name or skill…" oninput="displayProfiles()">
+      </div>
+    </div>
+
+    <!-- List -->
+    <div class="profile-list" id="profileList"></div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

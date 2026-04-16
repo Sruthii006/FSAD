@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Service Matchmaker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">✦ <span>Service</span>&nbsp;Matchmaker</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profiles</a>
+    <a href="events.html" class="active">Events</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="section">
+
+    <div class="section-header">
+      <h2>Available <em>Events</em></h2>
+      <span class="section-count" id="eventCount">0 events</span>
+    </div>
+
+    <!-- Add Event Form -->
+    <div class="form-card">
+      <h3>Post a New Event</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="eventTitle">Event Title</label>
+          <input type="text" id="eventTitle" placeholder="e.g. Community Garden Day">
+        </div>
+        <div class="field">
+          <label for="eventSkill">Skill Required</label>
+          <input type="text" id="eventSkill" placeholder="e.g. Gardening">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="eventDate">Date</label>
+          <input type="date" id="eventDate">
+        </div>
+        <div class="field">
+          <label for="eventLocation">Location</label>
+          <input type="text" id="eventLocation" placeholder="e.g. Central Park">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="addEvent()">Post Event &rarr;</button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <div class="field">
+        <input type="text" id="searchSkill" placeholder="Search by skill or event name…" oninput="filterEvents()">
+      </div>
+      <button class="btn btn-outline" onclick="filterEvents()">Search</button>
+    </div>
+
+    <!-- List -->
+    <div class="event-list" id="eventList"></div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
