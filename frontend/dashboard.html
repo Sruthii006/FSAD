@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
+
+<body>
+
+<h1>Assignments Dashboard</h1>
+
+<button onclick="loadAssignments()">Load Assignments</button>
+
+<ul id="assignmentList"></ul>
+
+<script>
+
+async function loadAssignments(){
+
+const res = await fetch("http://localhost:5000/assignments");
+
+const data = await res.json();
+
+const list = document.getElementById("assignmentList");
+
+list.innerHTML = "";
+
+data.forEach(a => {
+
+const li = document.createElement("li");
+
+li.innerHTML =
+"<b>Title:</b> " + a.title + "<br>" +
+"<b>Description:</b> " + a.description + "<br>" +
+"<b>Deadline:</b> " + a.deadline + "<br><br>";
+
+list.appendChild(li);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

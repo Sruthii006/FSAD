@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Assignment</title>
+</head>
+
+<body>
+
+<h1>Add Assignment</h1>
+
+<form id="assignmentForm">
+
+Title:<br>
+<input type="text" id="title" required><br><br>
+
+Description:<br>
+<input type="text" id="description" required><br><br>
+
+Deadline:<br>
+<input type="date" id="deadline" required><br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+<script>
+
+document.getElementById("assignmentForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const title = document.getElementById("title").value;
+const description = document.getElementById("description").value;
+const deadline = document.getElementById("deadline").value;
+
+const res = await fetch("http://localhost:5000/assignments/add",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+title:title,
+description:description,
+deadline:deadline
+})
+
+});
+
+const data = await res.json();
+
+document.getElementById("message").innerText = data.message;
+
+});
+
+</script>
+
+</body>
+</html>
